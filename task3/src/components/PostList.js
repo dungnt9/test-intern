@@ -5,15 +5,10 @@ import { fetchPosts } from '../redux/actions';
 function PostList() {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts);
-  const loading = useSelector(state => state.loading);
 
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
